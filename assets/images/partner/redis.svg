@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 90 32" width="90" height="32" fill="currentColor">
+  <!-- Redis Layer Cubes -->
+  <path d="M4 14l10-5 10 5-10 5-10-5zm0 4l10 5 10-5v2l-10 5-10-5v-2zm0 4l10 5 10-5v2l-10 5-10-5v-2z"/>
+  <!-- Redis Text -->
+  <text x="28" y="21" font-family="'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="700">Redis</text>
+</svg>
