@@ -658,115 +658,7 @@ $pageDescription = "I fix broken functionality, slow pages, and mobile issues fo
     </div>
   </section>
 
-  <!-- ── 6. BEFORE / AFTER SHOWCASE ─────────────────────────── -->
-  <section id="before-after" class="section-block section-alt" aria-labelledby="ba-heading">
-    <div class="container">
-      <div class="section-header text-center reveal-up">
-        <span class="eyebrow">Practical Impact</span>
-        <h2 class="section-heading" id="ba-heading">Small Changes Can Make a Big Difference</h2>
-        <p class="section-sub">
-          You don't need an expensive complete website rebuild to fix the issues hurting your conversions. Here are real improvements that immediately pay for themselves:
-        </p>
-      </div>
-
-      <div class="ba-showcase-grid">
-        <!-- Example 1: Click to Call -->
-        <div class="ba-comparison-card reveal-up">
-          <div class="ba-card-top">
-            <div class="ba-side ba-side-before">
-              <span class="ba-label red">BEFORE</span>
-              <h4>Non-Clickable Phone Number</h4>
-              <p>Phone number listed as plain text. Mobile visitors had to manually copy, memorize, or re-type the number, causing 40%+ drop-off.</p>
-            </div>
-            <div class="ba-arrow" aria-hidden="true"><i class="bi bi-arrow-right"></i></div>
-            <div class="ba-side ba-side-after">
-              <span class="ba-label green">AFTER FIX</span>
-              <h4>One-Tap Click-to-Call</h4>
-              <p>Prominent header &amp; sticky mobile call button. Visitors tap once to immediately ring your front desk or reception.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Example 2: Broken Form -->
-        <div class="ba-comparison-card reveal-up">
-          <div class="ba-card-top">
-            <div class="ba-side ba-side-before">
-              <span class="ba-label red">BEFORE</span>
-              <h4>Broken Contact / Quote Form</h4>
-              <p>Forms silently throwing server errors, submitting without notifications, or buried under broken plugins.</p>
-            </div>
-            <div class="ba-arrow" aria-hidden="true"><i class="bi bi-arrow-right"></i></div>
-            <div class="ba-side ba-side-after">
-              <span class="ba-label green">AFTER FIX</span>
-              <h4>Clean, Working Lead Capture</h4>
-              <p>Validated form fields, spam protection, instant email/SMS delivery to your inbox, and warm customer confirmation message.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Example 3: Mobile Layout -->
-        <div class="ba-comparison-card reveal-up">
-          <div class="ba-card-top">
-            <div class="ba-side ba-side-before">
-              <span class="ba-label red">BEFORE</span>
-              <h4>Poor Mobile Layout</h4>
-              <p>Horizontal scrolling, cut-off sentences, overlapping photos, and buttons too tiny for fingers to accurately tap.</p>
-            </div>
-            <div class="ba-arrow" aria-hidden="true"><i class="bi bi-arrow-right"></i></div>
-            <div class="ba-side ba-side-after">
-              <span class="ba-label green">AFTER FIX</span>
-              <h4>Responsive Mobile Experience</h4>
-              <p>Clean vertical flow, readable typography, thumb-accessible menus, and smooth layout on all iPhone &amp; Android devices.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Example 4: Speed -->
-        <div class="ba-comparison-card reveal-up">
-          <div class="ba-card-top">
-            <div class="ba-side ba-side-before">
-              <span class="ba-label red">BEFORE</span>
-              <h4>Slow 5-Second Load Time</h4>
-              <p>Bloated uncompressed images and database delays causing impatient visitors to hit the back button before seeing your services.</p>
-            </div>
-            <div class="ba-arrow" aria-hidden="true"><i class="bi bi-arrow-right"></i></div>
-            <div class="ba-side ba-side-after">
-              <span class="ba-label green">AFTER FIX</span>
-              <h4>Sub-Second Speed (0.5s)</h4>
-              <p>Optimized image delivery, caching, and clean code execution. Pages appear instantly, boosting Google rankings and conversions.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Example 5: CTA -->
-        <div class="ba-comparison-card reveal-up">
-          <div class="ba-card-top">
-            <div class="ba-side ba-side-before">
-              <span class="ba-label red">BEFORE</span>
-              <h4>Confusing or Missing CTA</h4>
-              <p>Visitors finished reading without knowing what to do next. Weak links like "Submit" or hidden inquiry links.</p>
-            </div>
-            <div class="ba-arrow" aria-hidden="true"><i class="bi bi-arrow-right"></i></div>
-            <div class="ba-side ba-side-after">
-              <span class="ba-label green">AFTER FIX</span>
-              <h4>High-Intent Action Triggers</h4>
-              <p>Clear, contrasting buttons: "Book Your Appointment", "Request Instant Quote", or "Check Schedule Today".</p>
-            </div>
-          </div>
-        </div>
-
-      </div><!-- /.ba-showcase-grid -->
-
-      <div class="text-center mt-5 reveal-up">
-        <a href="#contact" class="btn-primary-glow">
-          <i class="bi bi-check-circle" aria-hidden="true"></i>
-          Request a Review of Your Website
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── 7. PORTFOLIO / CASE STUDIES ───────────────────────── -->
+  <!-- ── 6. PORTFOLIO / CASE STUDIES ───────────────────────── -->
   <section id="work" class="section-block section-deep" aria-labelledby="work-heading">
     <div class="container">
       <div class="section-header text-center">
@@ -804,12 +696,21 @@ $pageDescription = "I fix broken functionality, slow pages, and mobile issues fo
                    aria-label="View <?= htmlspecialchars($p['title']) ?> details">
             
             <div class="project-img-wrap">
-              <img src="<?= htmlspecialchars($p['image']) ?>" 
-                   alt="<?= htmlspecialchars($p['alt']) ?>" 
-                   width="600" 
-                   height="340" 
-                   loading="lazy" 
-                   onerror="this.src='https://placehold.co/600x340/0d0d12/9ca3af?text=<?= urlencode($p['title']) ?>'" />
+              <?php
+                $imgWebp = $p['image'];
+                $imgJpg  = preg_replace('/\.webp$/i', '.jpg', $imgWebp);
+                $imgFallback = file_exists(__DIR__ . '/' . $imgJpg) ? $imgJpg : preg_replace('/\.webp$/i', '.png', $imgWebp);
+              ?>
+              <picture>
+                <source srcset="<?= htmlspecialchars($imgWebp) ?>" type="image/webp">
+                <img src="<?= htmlspecialchars($imgFallback) ?>" 
+                     alt="<?= htmlspecialchars($p['alt']) ?>" 
+                     width="600" 
+                     height="340" 
+                     loading="lazy" 
+                     decoding="async" 
+                     onerror="this.src='https://placehold.co/600x340/0d0d12/9ca3af?text=<?= urlencode($p['title']) ?>'" />
+              </picture>
               
               <!-- Badges on image top -->
               <div class="project-badges-bar">

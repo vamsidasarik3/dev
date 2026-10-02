@@ -2160,7 +2160,14 @@ body.nav-open .site-nav,
   background: var(--bg-base);
 }
 
+.project-img-wrap picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .project-img-wrap img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;

@@ -1,6 +1,8 @@
-﻿vendor/
+vendor/
 smtp-config.local.php
 .env
 leads.log
 .DS_Store
 Thumbs.db
+assets/images/work-originals/
+optimize-work.php
